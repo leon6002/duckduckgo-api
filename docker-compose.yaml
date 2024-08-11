@@ -6,4 +6,5 @@ services:
     restart: always
     ports:
       - "8304:8000"
-      - "7890:7890"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
