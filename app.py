@@ -21,7 +21,7 @@ def run():
 async def search():
     keywords, max_results = run()
     results = []
-    with DDGS() as ddgs:
+    with DDGS(proxy="socks5://127.0.0.1:7890") as ddgs:
         # 使用DuckDuckGo搜索关键词
         ddgs_gen = ddgs.text(keywords, safesearch='Off', timelimit='y', backend="lite")
         # 从搜索结果中获取最大结果数
@@ -36,7 +36,7 @@ async def search():
 async def search_answers():
     keywords, max_results = run()
     results = []
-    with DDGS() as ddgs:
+    with DDGS(proxy="socks5://127.0.0.1:7890") as ddgs:
         # 使用DuckDuckGo搜索关键词
         ddgs_gen = ddgs.answers(keywords)
         # 从搜索结果中获取最大结果数
@@ -51,7 +51,7 @@ async def search_answers():
 async def search_images():
     keywords, max_results = run()
     results = []
-    with DDGS() as ddgs:
+    with DDGS(proxy="socks5://127.0.0.1:7890") as ddgs:
         # 使用DuckDuckGo搜索关键词
         ddgs_gen = ddgs.images(keywords, safesearch='Off', timelimit=None)
         # 从搜索结果中获取最大结果数
@@ -66,7 +66,7 @@ async def search_images():
 async def search_videos():
     keywords, max_results = run()
     results = []
-    with DDGS() as ddgs:
+    with DDGS(proxy="socks5://127.0.0.1:7890") as ddgs:
         # 使用DuckDuckGo搜索关键词
         ddgs_gen = ddgs.videos(keywords, safesearch='Off', timelimit=None, resolution="high")
         # 从搜索结果中获取最大结果数
